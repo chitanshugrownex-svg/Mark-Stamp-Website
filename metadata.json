@@ -1,0 +1,8 @@
+{
+  "name": "Mark Pre-Inked Stamps",
+  "description": "Official website for Mark Pre-Inked Stamps by Shah Associates. Features a product catalog and FAQ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
