@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ShieldCheck, Zap, Droplet, Star, ArrowRight, Landmark, Hospital, Building2, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,23 @@ const clients = [
   { name: 'Cipla Ltd', domain: 'cipla.com' },
 ];
 
+const heroProducts = [
+  { src: './sun-stamper.png', name: 'Sun Stamper Model' },
+  { src: './sunce.png', name: 'Sunce Series' },
+  { src: './exmark.png', name: 'Exmark Self-Ink' },
+  { src: './neo-speedy.png', name: 'Neo Speedy' }
+];
+
 export function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroProducts.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -48,42 +64,51 @@ export function Home() {
             
             {/* Hero Product Showcase */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative hidden md:block w-full max-w-lg mx-auto"
             >
               {/* Decorative background */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-red-100/50 rounded-full blur-3xl -z-10"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-red-100 to-orange-50 rounded-[3rem] -rotate-3 -z-10 blur-sm"></div>
               
-              <div className="grid grid-cols-2 gap-4 lg:gap-6 relative z-10 px-4">
-                <motion.div 
-                  initial={{ y: 30, opacity: 0 }} 
-                  animate={{ y: 0, opacity: 1 }} 
-                  transition={{ delay: 0.4, duration: 0.6 }} 
-                  className="space-y-4 lg:space-y-6 pt-12"
-                >
-                  <div className="bg-white rounded-2xl p-4 shadow-xl shadow-gray-200/50 border border-white hover:border-red-100 hover:shadow-red-100 transition-all duration-300">
-                    <img src="/sun-stamper.png" alt="Sun Stamper" className="w-full h-auto rounded-xl object-contain aspect-square" />
-                  </div>
-                  <div className="bg-white rounded-2xl p-4 shadow-xl shadow-gray-200/50 border border-white hover:border-red-100 hover:shadow-red-100 transition-all duration-300">
-                    <img src="/sunce.png" alt="Sunce" className="w-full h-auto rounded-xl object-contain aspect-square" />
-                  </div>
-                </motion.div>
+              <div className="bg-white rounded-[2rem] shadow-2xl border border-gray-100 p-3 overflow-hidden relative">
+                {/* Badge */}
+                <div className="absolute top-6 left-6 z-20 bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg tracking-wide uppercase">
+                  Featured Series
+                </div>
                 
-                <motion.div 
-                  initial={{ y: -30, opacity: 0 }} 
-                  animate={{ y: 0, opacity: 1 }} 
-                  transition={{ delay: 0.6, duration: 0.6 }} 
-                  className="space-y-4 lg:space-y-6 pb-12"
-                >
-                  <div className="bg-white rounded-2xl p-4 shadow-xl shadow-gray-200/50 border border-white hover:border-red-100 hover:shadow-red-100 transition-all duration-300">
-                    <img src="/exmark.png" alt="Exmark" className="w-full h-auto rounded-xl object-contain aspect-square" />
-                  </div>
-                  <div className="bg-white rounded-2xl p-4 shadow-xl shadow-gray-200/50 border border-white hover:border-red-100 hover:shadow-red-100 transition-all duration-300">
-                    <img src="/neo-speedy.png" alt="Neo Speedy" className="w-full h-auto rounded-xl object-contain aspect-square" />
-                  </div>
-                </motion.div>
+                {/* Main Feature Image */}
+                <div className="bg-gray-50 rounded-3xl h-[340px] flex items-center justify-center p-8 relative overflow-hidden group border border-gray-100/50">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      key={currentSlide}
+                      src={heroProducts[currentSlide].src} 
+                      alt={heroProducts[currentSlide].name} 
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute w-full h-full object-contain filter drop-shadow-2xl group-hover:scale-105 transition-transform duration-700 ease-out p-8"
+                    />
+                  </AnimatePresence>
+                </div>
+                
+                {/* Thumbnails Row */}
+                <div className="grid grid-cols-4 gap-2 mt-3">
+                  {heroProducts.map((product, idx) => (
+                    <div 
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`bg-gray-50 transition-all duration-300 rounded-2xl p-2 border cursor-pointer h-20 flex items-center justify-center ${
+                        currentSlide === idx ? 'border-red-500 shadow-md ring-2 ring-red-100' : 'border-transparent hover:border-red-200 hover:bg-red-50'
+                      }`}
+                    >
+                       <img src={product.src} alt={product.name} className="max-w-full max-h-full object-contain drop-shadow-sm hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>

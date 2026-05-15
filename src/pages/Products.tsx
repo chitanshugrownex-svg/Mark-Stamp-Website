@@ -8,7 +8,7 @@ const products = [
     category: 'Portable & Pocket',
     size: 'Various Sizes',
     desc: 'Perfect for doctors, sales executives, and professionals on the move. Provides high-definition impressions that last thousands of times.',
-    image: '/sun-stamper.png',
+    image: './sun-stamper.png',
     color: 'red',
   },
   {
@@ -17,7 +17,7 @@ const products = [
     category: 'Address & Logo',
     size: 'Various Sizes',
     desc: 'Our popular desktop format. Ideal for company addresses, proprietor signatures, and multi-line custom text in the office.',
-    image: '/sunce.png',
+    image: './sunce.png',
     color: 'blue',
   },
   {
@@ -26,7 +26,7 @@ const products = [
     category: 'Compact & Durable',
     size: 'Various Sizes',
     desc: 'The essential compact option. Rugged build quality perfect for high-frequency counter use, receipts, and professional certifications.',
-    image: '/exmark.png',
+    image: './exmark.png',
     color: 'emerald',
   },
   {
@@ -35,7 +35,7 @@ const products = [
     category: 'Fast & Reliable',
     size: 'Various Sizes',
     desc: 'Designed for quick repetitive stamping. Comfortable grip, smooth action, and exceptional clarity for all your daily tasks.',
-    image: '/neo-speedy.png',
+    image: './neo-speedy.png',
     color: 'purple',
   },
 ];
