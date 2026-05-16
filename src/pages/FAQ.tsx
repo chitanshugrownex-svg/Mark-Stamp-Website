@@ -21,7 +21,7 @@ const faqs = [
   {
     id: 4,
     question: "How long does it take to manufacture my custom stamp?",
-    answer: "Once the artwork is approved, production typically takes 1 to 2 business days. Bulk orders may require additional time which will be communicated during ordering."
+    answer: "Once the artwork is approved, production typically takes 1 to 2 hours. Bulk orders may require additional time which will be communicated during ordering."
   },
   {
     id: 5,

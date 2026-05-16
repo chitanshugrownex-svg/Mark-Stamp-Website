@@ -53,12 +53,13 @@ export function Home() {
                 Premium, high-definition pre-inked stamps designed for professionals. Experience thousands of crisp impressions without a messy stamp pad.
               </p>
               <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                <Link to="/products" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-red-200 transition-all flex items-center justify-center gap-2 group">
+                <Link 
+                  to="/products"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-red-200 transition-all flex items-center justify-center gap-2 group"
+                >
                   View Catalog
                   <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </Link>
-                <Link to="/faq" className="bg-white hover:bg-gray-50 text-gray-800 border-2 border-gray-200 px-8 py-4 rounded-lg font-bold text-lg transition-all text-center">
-                  Learn More
                 </Link>
               </div>
             </motion.div>

@@ -64,18 +64,6 @@ export function Products() {
           </motion.p>
         </div>
 
-        {/* Categories / Filter placeholder (could add active state logic later) */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-           {['All', 'Portable', 'Address & Logo', 'Official Seals', 'Large Format'].map((tab, i) => (
-              <button 
-                 key={i} 
-                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${i === 0 ? 'bg-red-600 text-white shadow-md' : 'bg-white text-gray-600 border border-gray-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200'}`}
-              >
-                  {tab}
-              </button>
-           ))}
-        </div>
-
         {/* Product Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
           {products.map((product, idx) => (
@@ -131,9 +119,9 @@ export function Products() {
                <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
                    Don't see your requirement here? We manufacture tailor-made stamp dies up to A4 sizes for specialized industrial use.
                </p>
-               <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+               <a href="tel:+919081234419" className="inline-block bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-8 rounded-lg transition-colors">
                    Contact Sales Team
-               </button>
+               </a>
            </div>
         </motion.div>
       </div>
