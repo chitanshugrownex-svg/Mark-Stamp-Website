@@ -4,13 +4,14 @@ import { ShieldCheck, Zap, Droplet, Star, ArrowRight, Landmark, Hospital, Buildi
 import { Link } from 'react-router-dom';
 
 const clients = [
-  { name: 'Larsen & Toubro', domain: 'larsentoubro.com' },
-  { name: 'Apollo Hospitals', domain: 'apollohospitals.com' },
-  { name: 'Reliance', domain: 'ril.com' },
-  { name: 'Delhi Public School', domain: 'dpsfamily.org' },
-  { name: 'Tata Motors', domain: 'tatamotors.com' },
-  { name: 'HDFC Bank', domain: 'hdfcbank.com' },
-  { name: 'Cipla Ltd', domain: 'cipla.com' },
+  { name: 'Apollo Hospitals', image: './apollo-hospitals.png' },
+  { name: 'Axis Bank', image: './axis-bank.png' },
+  { name: 'HDFC Bank', image: './hdfc-bank.png' },
+  { name: 'Larsen & Toubro', image: './larsen-&-toubro.png' },
+  { name: 'LIC', image: './lic.png' },
+  { name: 'National Insurance', image: './national-insurance.png' },
+  { name: 'Parul University', image: './parul-university.png' },
+  { name: 'State Bank of India', image: './state-bank-of-india.png' },
 ];
 
 const heroProducts = [
@@ -78,9 +79,9 @@ export function Home() {
                   Featured Series
                 </div>
                 
-                {/* Main Feature Image */}
-                <div className="bg-gray-50 rounded-3xl h-[340px] flex items-center justify-center p-8 relative overflow-hidden group border border-gray-100/50">
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                {/* Main Feature Image - Poster Style */}
+                <div className="bg-gray-50 rounded-3xl aspect-[3/4] sm:aspect-[4/5] max-h-[600px] w-full flex items-center justify-center relative overflow-hidden group shadow-inner border border-gray-100/50">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-100/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
                   <AnimatePresence mode="wait">
                     <motion.img 
                       key={currentSlide}
@@ -95,18 +96,17 @@ export function Home() {
                   </AnimatePresence>
                 </div>
                 
-                {/* Thumbnails Row */}
-                <div className="grid grid-cols-4 gap-2 mt-3">
-                  {heroProducts.map((product, idx) => (
-                    <div 
+                {/* Dots Row */}
+                <div className="flex justify-center gap-3 mt-6">
+                  {heroProducts.map((_, idx) => (
+                    <button 
                       key={idx}
                       onClick={() => setCurrentSlide(idx)}
-                      className={`bg-gray-50 transition-all duration-300 rounded-2xl p-2 border cursor-pointer h-20 flex items-center justify-center ${
-                        currentSlide === idx ? 'border-red-500 shadow-md ring-2 ring-red-100' : 'border-transparent hover:border-red-200 hover:bg-red-50'
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        currentSlide === idx ? 'w-8 bg-red-600' : 'w-2.5 bg-gray-300 hover:bg-red-400'
                       }`}
-                    >
-                       <img src={product.src} alt={product.name} className="max-w-full max-h-full object-contain drop-shadow-sm hover:scale-110 transition-transform duration-300" />
-                    </div>
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
                   ))}
                 </div>
               </div>
@@ -176,16 +176,16 @@ export function Home() {
 
           {/* Client Marquee */}
           <div className="mt-20 pt-10 border-t border-gray-200 overflow-hidden relative">
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">Serving Hundreds of Organizations</h3>
+            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">Serving Thousands of Organizations</h3>
             
-            <div className="flex w-[200%] animate-marquee">
-              <div className="flex w-1/2 justify-around items-center px-4 gap-8 md:gap-12">
+            <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+              <div className="flex justify-around items-center px-6 md:px-10 gap-12 md:gap-20">
                 {clients.map(client => (
-                  <div key={client.name} className="flex-shrink-0 w-24 md:w-32 flex items-center justify-center opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                  <div key={client.name} className="flex-shrink-0 w-32 md:w-48 flex items-center justify-center transition-all duration-300 hover:scale-105">
                     <img 
-                      src={client.image || `https://logo.clearbit.com/${client.domain}`} 
+                      src={client.image} 
                       alt={client.name}
-                      className="max-h-12 max-w-full object-contain"
+                      className="max-h-16 md:max-h-20 max-w-full object-contain"
                       onError={(e) => {
                          e.currentTarget.style.display = 'none';
                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
@@ -195,13 +195,13 @@ export function Home() {
                   </div>
                 ))}
               </div>
-              <div className="flex w-1/2 justify-around items-center px-4 gap-8 md:gap-12">
+              <div className="flex justify-around items-center px-6 md:px-10 gap-12 md:gap-20" aria-hidden="true">
                 {clients.map(client => (
-                  <div key={client.name + '-dup'} className="flex-shrink-0 w-24 md:w-32 flex items-center justify-center opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                  <div key={client.name + '-dup'} className="flex-shrink-0 w-32 md:w-48 flex items-center justify-center transition-all duration-300 hover:scale-105">
                     <img 
-                      src={client.image || `https://logo.clearbit.com/${client.domain}`} 
+                      src={client.image} 
                       alt={client.name}
-                      className="max-h-12 max-w-full object-contain"
+                      className="max-h-16 md:max-h-20 max-w-full object-contain"
                       onError={(e) => {
                          e.currentTarget.style.display = 'none';
                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
@@ -223,7 +223,7 @@ export function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">Why Choose Pre-Inked?</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900 md:text-4xl">Why Choose Pre-Inked Stamps?</h2>
             <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
               A technological leap from traditional rubber stamps. Ink is infused directly into the die material.
             </p>
@@ -246,7 +246,7 @@ export function Home() {
               {
                 icon: <ShieldCheck className="text-white" size={24} />,
                 title: "Long Lasting",
-                desc: "Get up to 50,000 pristine impressions before ever needing to add a refill drop of ink.",
+                desc: "Get up to thousands of pristine impressions before ever needing to add a refill drop of ink.",
                 color: "bg-green-500"
               },
               {

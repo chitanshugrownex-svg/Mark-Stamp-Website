@@ -87,9 +87,9 @@ export function Products() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all flex flex-col sm:flex-row gap-8 group"
             >
-              {/* Product Image */}
-              <div className="w-32 h-32 flex-shrink-0 bg-gray-50 rounded-xl flex items-center justify-center p-2 group-hover:scale-105 transition-transform duration-300 shadow-inner">
-                <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
+              {/* Product Image Poster */}
+              <div className="w-full sm:w-48 aspect-[4/5] flex-shrink-0 bg-gray-50 rounded-xl flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-500 shadow-inner">
+                <img src={product.image} alt={product.name} className="w-full h-full object-contain p-4" />
               </div>
               
               <div className="flex flex-col justify-center flex-grow">
