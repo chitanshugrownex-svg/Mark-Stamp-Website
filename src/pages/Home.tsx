@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShieldCheck, Zap, Droplet, Star, ArrowRight, Landmark, Hospital, Building2, GraduationCap } from 'lucide-react';
+import { ShieldCheck, Zap, Droplet, Star, ArrowRight, Landmark, Hospital, Building2, GraduationCap, PlayCircle, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const clients = [
@@ -15,10 +15,10 @@ const clients = [
 ];
 
 const heroProducts = [
-  { src: './sun-stamper.png', name: 'Sun Stamper Model' },
-  { src: './sunce.png', name: 'Sunce Series' },
-  { src: './exmark.png', name: 'Exmark Self-Ink' },
-  { src: './neo-speedy.png', name: 'Neo Speedy' }
+  { src: './sun-stamper-2.png', name: 'Sun Stamper Stamps' },
+  { src: './sunce-2.png', name: 'SUNCE Stamps' },
+  { src: './exmark-2.png', name: 'Exmark Spring Action Stamps' },
+  { src: './neo-speedy-2.png', name: 'Neo Speedy Stamps' }
 ];
 
 export function Home() {
@@ -291,6 +291,101 @@ export function Home() {
           >
             Contact For Bulk Order
           </a>
+        </div>
+      </section>
+
+      {/* Videos & Blogs Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">Videos & Insights</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Explore our latest videos, tutorials, and articles to stay updated.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Videos Column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <PlayCircle className="text-red-600" /> Featured Videos
+              </h3>
+              <div className="space-y-6">
+                 {/* Video Card */}
+                 <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div className="aspect-video bg-gray-200 relative group cursor-pointer flex items-center justify-center">
+                      <PlayCircle size={48} className="text-gray-400 group-hover:text-red-600 transition-colors" />
+                    </div>
+                    <div className="p-5">
+                      <h4 className="font-bold text-lg mb-2">How to Use Sun Stamper Flash Machine</h4>
+                      <p className="text-gray-600 text-sm">A step-by-step tutorial on creating high-quality pre-inked stamps in minutes.</p>
+                    </div>
+                 </div>
+                 {/* Video Card 2 */}
+                 <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div className="aspect-[21/9] bg-gray-200 relative group cursor-pointer flex items-center justify-center">
+                      <PlayCircle size={48} className="text-gray-400 group-hover:text-red-600 transition-colors" />
+                    </div>
+                    <div className="p-5">
+                      <h4 className="font-bold text-lg mb-2">Refilling Your Pre-Inked Timestamp</h4>
+                      <p className="text-gray-600 text-sm">Learn the proper way to refill your stamp for thousands of clean impressions.</p>
+                    </div>
+                 </div>
+              </div>
+            </motion.div>
+
+            {/* Blogs Column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <BookOpen className="text-red-600" /> Latest Articles
+              </h3>
+              <div className="space-y-6">
+                 <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 p-5 hover:shadow-md transition-shadow flex gap-4 items-start cursor-pointer">
+                    <div className="w-24 h-24 bg-gray-200 rounded-lg flex-shrink-0 flex items-center justify-center">
+                       <ShieldCheck className="text-gray-400" size={32} />
+                    </div>
+                    <div>
+                      <div className="text-red-600 text-xs font-bold uppercase tracking-wider mb-1">Guides</div>
+                      <h4 className="font-bold text-lg mb-2 hover:text-red-600 transition-colors">Choosing the Right Stamp for Your Business</h4>
+                      <p className="text-gray-600 text-sm line-clamp-2">Discover the differences between self-inking, pre-inked, and common seals to make an informed choice.</p>
+                      <div className="text-gray-400 text-xs mt-3">May 15, 2026</div>
+                    </div>
+                 </div>
+                 <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 p-5 hover:shadow-md transition-shadow flex gap-4 items-start cursor-pointer">
+                    <div className="w-24 h-24 bg-gray-200 rounded-lg flex-shrink-0 flex items-center justify-center">
+                       <Zap className="text-gray-400" size={32} />
+                    </div>
+                    <div>
+                      <div className="text-red-600 text-xs font-bold uppercase tracking-wider mb-1">News</div>
+                      <h4 className="font-bold text-lg mb-2 hover:text-red-600 transition-colors">The Evolution of Stamp Technology</h4>
+                      <p className="text-gray-600 text-sm line-clamp-2">From wooden pegs to advanced flash machines, see how stamp making has evolved over the years.</p>
+                      <div className="text-gray-400 text-xs mt-3">April 28, 2026</div>
+                    </div>
+                 </div>
+                 <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 p-5 hover:shadow-md transition-shadow flex gap-4 items-start cursor-pointer">
+                    <div className="w-24 h-24 bg-gray-200 rounded-lg flex-shrink-0 flex items-center justify-center">
+                       <Droplet className="text-gray-400" size={32} />
+                    </div>
+                    <div>
+                      <div className="text-red-600 text-xs font-bold uppercase tracking-wider mb-1">Tips</div>
+                      <h4 className="font-bold text-lg mb-2 hover:text-red-600 transition-colors">How to Get 10,000+ Impressions</h4>
+                      <p className="text-gray-600 text-sm line-clamp-2">Maintenance tips to ensure your pre-inked stamp lasts as long as possible with crystal clear quality.</p>
+                      <div className="text-gray-400 text-xs mt-3">March 10, 2026</div>
+                    </div>
+                 </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>

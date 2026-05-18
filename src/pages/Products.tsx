@@ -4,39 +4,66 @@ import { motion } from 'motion/react';
 const products = [
   {
     id: 'p1',
-    name: 'Sun Stamper Models',
-    category: 'Portable & Pocket',
+    name: 'Sun Stamper Stamps',
+    category: 'Trusted Since Last 25 Years',
     size: 'Various Sizes',
     desc: 'Perfect for doctors, sales executives, and professionals on the move. Provides high-definition impressions that last thousands of times.',
-    image: './sun-stamper.png',
+    image: './sun-stamper-2.png',
     color: 'red',
   },
   {
     id: 'p2',
-    name: 'Sunce Desktop Series',
-    category: 'Address & Logo',
+    name: 'SUNCE Stamps',
+    category: 'Gets Ready In 15 Minutes',
     size: 'Various Sizes',
     desc: 'Our popular desktop format. Ideal for company addresses, proprietor signatures, and multi-line custom text in the office.',
-    image: './sunce.png',
+    image: './sunce-2.png',
     color: 'blue',
   },
   {
     id: 'p3',
-    name: 'Exmark Self-Ink',
-    category: 'Compact & Durable',
+    name: 'Exmark Spring Action Stamps',
+    category: 'India\'s Only Spring Action Stamp',
     size: 'Various Sizes',
     desc: 'The essential compact option. Rugged build quality perfect for high-frequency counter use, receipts, and professional certifications.',
-    image: './exmark.png',
+    image: './exmark-2.png',
     color: 'emerald',
   },
   {
     id: 'p4',
-    name: 'Neo Speedy',
-    category: 'Fast & Reliable',
+    name: 'Neo Speedy Stamps',
+    category: 'Gets Ready In 15 Minutes',
     size: 'Various Sizes',
     desc: 'Designed for quick repetitive stamping. Comfortable grip, smooth action, and exceptional clarity for all your daily tasks.',
-    image: './neo-speedy.png',
+    image: './neo-speedy-2.png',
     color: 'purple',
+  },
+  {
+    id: 'p5',
+    name: 'Customised Common Seal',
+    category: 'Premium Sealing',
+    size: 'Standard',
+    desc: 'High-quality customised common seal, perfect for official documents, certificates, and corporate authentication.',
+    image: './common-seal.png',
+    color: 'orange',
+  },
+  {
+    id: 'p6',
+    name: 'Customised Wax Seal',
+    category: 'Premium Sealing',
+    size: 'Standard',
+    desc: 'Elegant customized wax seals for invitations, packaging, and a premium vintage finish.',
+    image: './wax-seal.png',
+    color: 'amber',
+  },
+  {
+    id: 'p7',
+    name: 'Sun Stamper Flash Machine',
+    category: 'For Self Inked Stamp',
+    size: 'Standard',
+    desc: 'Advanced Sun Stamper Flash Machine, designed explicitly for rapid manufacturing of high-quality self-inked stamps.',
+    image: './flash-machine.png',
+    color: 'gray',
   },
 ];
 
@@ -98,9 +125,14 @@ export function Products() {
                   {product.desc}
                 </p>
 
-                <button className="self-start text-red-600 font-bold hover:text-red-700 hover:underline flex items-center gap-2">
+                <a 
+                  href={`https://wa.me/919081234419?text=${encodeURIComponent(`Hi, I'm interested in the ${product.name}.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-start text-red-600 font-bold hover:text-red-700 hover:underline flex items-center gap-2"
+                >
                   Enquire Now <span>&rarr;</span>
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}

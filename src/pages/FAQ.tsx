@@ -107,9 +107,14 @@ export function FAQ() {
         <div className="mt-16 bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center shadow-inner">
            <h3 className="text-xl font-bold text-gray-900 mb-2">Still have questions?</h3>
            <p className="text-gray-600 mb-6">Can't find the answer you're looking for? Please chat to our friendly team.</p>
-           <button className="bg-gray-900 text-white font-bold px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+           <a 
+             href="https://wa.me/919081234419?text=Hi%2C%20I%20have%20a%20few%20questions%20regarding%20your%20products."
+             target="_blank"
+             rel="noopener noreferrer"
+             className="inline-block bg-gray-900 text-white font-bold px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+           >
               Get in Touch
-           </button>
+           </a>
         </div>
 
       </div>

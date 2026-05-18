@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Logo } from './Logo';
-import { Menu, X, Mail, Phone, MapPin } from 'lucide-react';
+import { Menu, X, Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -113,6 +113,17 @@ export function Layout() {
              <p className="text-gray-400 text-sm mt-4 max-w-xs">
                Premium quality pre-inked stamps built for durability, clarity, and convenience. Say goodbye to messy ink pads forever.
              </p>
+             <div className="flex space-x-4 mt-6">
+               <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                 <Linkedin size={24} />
+               </a>
+               <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                 <Facebook size={24} />
+               </a>
+               <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                 <Instagram size={24} />
+               </a>
+             </div>
           </div>
 
           <div>
